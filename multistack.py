@@ -32,11 +32,11 @@ class MultiStack:
 
 	def checkStacksForInteraction(self, e):
 		for entryArray in self.mainArray:
-			if not e.name == entryArray[0] and e.isInRange(entryArray[-1]) 
+			if not e.name == entryArray[0] and e.isInRange(entryArray[-1]):
 				if e.isWithinSixHours(entryArray[-1]):
 					return self.addToMatches(e, entryArray[-1])
 				else:
-					print "DIDN'T ADD " + match.stringify() + " because inactive" 
+					print "DIDN'T ADD " + matchEntry.MatchEntry(e, entryArray[-1]).stringify() + " because inactive" 
 
 	def addToMatches(self, e, f):
 		match = matchEntry.MatchEntry(e,f)
