@@ -1,4 +1,5 @@
 import entry
+import matchEntry
 
 class MultiStack:
 	def __init__(self):
@@ -36,13 +37,12 @@ class MultiStack:
 					self.addToMatches(e, entryArray[-1])
 
 	def addToMatches(self, e, f):
-		unixtime = e.time if e.time > f.time else f.time
-		if (e.name < f.name):
-			s = e.name + "|" + str(e.lat) + "|" + str(e.lon) + "|" + f.name + "|" + str(f.lat) + "|" + str(f.lon)
+		match = matchEntry.MatchEntry(e,f)
+		if match.checkLastInteraction(self.matchesArray) < (24 * 60 * 60):
+			print "didn't add because less than 24 hours since last match"
 		else:
-			s = f.name + "|" + str(f.lat) + "|" + str(f.lon) + "|" + e.name + "|" + str(e.lat) + "|" + str(e.lon)
-		self.matchesArray.append(str(unixtime) + "|" + s)
-		print self.matchesArray
+			print "added " + match.stringify()
+			self.matchesArray.append(match)
 
 	def stringify(self):
 		for entryArray in self.mainArray:
