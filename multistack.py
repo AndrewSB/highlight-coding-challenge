@@ -32,7 +32,8 @@ class MultiStack:
 		for entryArray in self.mainArray:
 			if not e.name == entryArray[0]:
 				if e.isInRange(entryArray[-1]):
-					print "hit with " + entryArray[-1].stringify()
+					if e.isWithinSixHours(entryArray[-1]):
+						print "hit with " + entryArray[-1].stringify()
 
 	def stringify(self):
 		for entryArray in self.mainArray:
@@ -45,7 +46,4 @@ class MultiStack:
 
 ms = MultiStack()
 ms.addEntry(entry.Entry("unclejoey|1327430121|37.777372247259|-122.3981163202"))
-ms.addEntry(entry.Entry("jj|1327437628|37.777253789662|-122.3981738187"))
-ms.addEntry(entry.Entry("danny|1327428557|37.77723932161|-122.39818298999"))
-ms.addEntry(entry.Entry("danny|1327428557|37.77723932161|-122.39818298999"))
-ms.addEntry(entry.Entry("unclejoey|1327430121|37.777372247259|-122.3981163202"))
+ms.addEntry(entry.Entry("jj|1327451720|37.777253789662|-122.3981738187"))

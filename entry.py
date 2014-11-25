@@ -17,3 +17,8 @@ class Entry:
 		if (delta < 150.000000001):
 			return True
 		return False
+
+	def isWithinSixHours(self, other):
+		if abs((self.time - other.time)) < (3600*6):
+			return True
+		return False
