@@ -1,6 +1,5 @@
 import entry
 
-
 def readData(filename):
 	file = open(filename, 'r')
 	for line in file:
