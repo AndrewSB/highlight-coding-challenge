@@ -19,4 +19,4 @@ class matchEntry(entry): #matchEntry extends entry
 		return name1 + " met " + name2 + " at " str(self.time) + " with a distance differential of " + str(self.differential) 
 
 	def csvify(self):
-		return self.name + "|" + str(self.time) + "|" + str(self.lat) + "|" + str(self.lon)
+		return self.time + "|" + self.name1 + "|" + str(self.lat1) + "|" + str(self.lon1) + "|" + self.name2 + "|" + str(self.lat2) + "|" + str(self.lon2)
