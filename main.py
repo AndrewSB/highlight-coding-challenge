@@ -1,4 +1,5 @@
 import entry
+import multistack
 
 def readData(filename):
 	file = open(filename, 'r')
