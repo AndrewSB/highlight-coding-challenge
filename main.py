@@ -1,33 +1,9 @@
-import math
-import haversine
-
-class Entry:
-	def __init__(self, line):
-		arr = line.split('|')
-		self.name = arr[0]
-		self.time = int(arr[1])
-		self.lat = float(arr[2])
-		self.lon = float(arr[3])
-
-	def stringify(self):
-		return self.name + " visited (" + str(self.lat) + "," + str(self.lon) + ") at " + str(self.time)
-
-	def isInRange(self, other): 
-		delta = haversine.distance(self,other)
-		print delta
-		if (delta < 150.000000001):
-			return True
-		return False
+import entry
 
 
-def readData(filename):
-	file = open(filename, 'r')
-	print file.readline()
-
-
-e = Entry("danny|1327401809|37.775011290418|-122.39381636393")
+e = entry.Entry("danny|1327401809|37.775011290418|-122.39381636393")
 print e.stringify()
 
-f = Entry("danny|1327401809|37.775011290418|-122.39381636393")
+f = entry.Entry("danny|1327401809|37.775011290418|-122.39381636393")
 
 print e.isInRange(f)
