@@ -5,7 +5,7 @@ def distance(origin, destination):
     lat2 = destination.lat
     lon1 = origin.lon
     lon2 = destination.lon
-    radius = 6371009 # m
+    radius = 6371009
  
     dlat = math.radians(lat2-lat1)
     dlon = math.radians(lon2-lon1)

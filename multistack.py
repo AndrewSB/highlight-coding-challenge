@@ -29,7 +29,6 @@ class MultiStack:
 		return False
 
 	def checkStacksForInteraction(self, e):
-		print "check "+e.stringify()
 		for entryArray in self.mainArray:
 			if not e.name == entryArray[0]:
 				if e.isInRange(entryArray[-1]) and e.isWithinSixHours(entryArray[-1]):
@@ -48,11 +47,6 @@ class MultiStack:
 		for entryArray in self.mainArray:
 			for entry in entryArray:
 				if entry != entryArray[0]:
-					print entry.stringify()
+					return entry.stringify()
 				else:
-					print entry
-
-
-ms = MultiStack()
-ms.addEntry(entry.Entry("z|1327430121|37.777372247259|-122.3981163202"))
-ms.addEntry(entry.Entry("aac|1327451720|37.777253789662|-122.3981738187"))
+					return entry

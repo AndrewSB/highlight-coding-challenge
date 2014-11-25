@@ -31,4 +31,4 @@ class MatchEntry():
 		return self.name1 + " met " + self.name2 + " at " + str(self.time) + " with a distance differential of " + str(self.differential) 
 
 	def csvify(self):
-		return self.time + "|" + self.name1 + "|" + str(self.lat1) + "|" + str(self.lon1) + "|" + self.name2 + "|" + str(self.lat2) + "|" + str(self.lon2)
+		return str(self.time) + "|" + self.name1 + "|" + str(self.lat1) + "|" + str(self.lon1) + "|" + self.name2 + "|" + str(self.lat2) + "|" + str(self.lon2)
