@@ -1,9 +1,9 @@
 import entry
 
 
-e = entry.Entry("danny|1327401809|37.775011290418|-122.39381636393")
-print e.stringify()
+def readData(filename):
+	file = open(filename, 'r')
+	for line in file:
+		print entry.Entry(line).stringify()
 
-f = entry.Entry("danny|1327401809|37.775011290418|-122.39381636393")
-
-print e.isInRange(f)
+readData("userdata.txt")

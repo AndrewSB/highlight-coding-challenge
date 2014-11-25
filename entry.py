@@ -17,8 +17,3 @@ class Entry:
 		if (delta < 150.000000001):
 			return True
 		return False
-
-
-def readData(filename):
-	file = open(filename, 'r')
-	print file.readline()
