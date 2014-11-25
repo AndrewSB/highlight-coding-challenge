@@ -31,9 +31,18 @@ class MultiStack:
 		print "check "+e.stringify()
 		for entryArray in self.mainArray:
 			if not e.name == entryArray[0]:
-				if e.isInRange(entryArray[-1]):
-					if e.isWithinSixHours(entryArray[-1]):
-						print "hit with " + entryArray[-1].stringify()
+				if e.isInRange(entryArray[-1]) and e.isWithinSixHours(entryArray[-1]):
+					print "hit with " + entryArray[-1].stringify()
+					self.addToMatches(e, entryArray[-1])
+
+	def addToMatches(self, e, f):
+		unixtime = e.time if e.time > f.time else f.time
+		if (e.name < f.name):
+			s = e.name + "|" + str(e.lat) + "|" + str(e.lon) + "|" + f.name + "|" + str(f.lat) + "|" + str(f.lon)
+		else:
+			s = f.name + "|" + str(f.lat) + "|" + str(f.lon) + "|" + e.name + "|" + str(e.lat) + "|" + str(e.lon)
+		self.matchesArray.append(str(unixtime) + "|" + s)
+		print self.matchesArray
 
 	def stringify(self):
 		for entryArray in self.mainArray:
@@ -45,5 +54,5 @@ class MultiStack:
 
 
 ms = MultiStack()
-ms.addEntry(entry.Entry("unclejoey|1327430121|37.777372247259|-122.3981163202"))
-ms.addEntry(entry.Entry("jj|1327451720|37.777253789662|-122.3981738187"))
+ms.addEntry(entry.Entry("z|1327430121|37.777372247259|-122.3981163202"))
+ms.addEntry(entry.Entry("aac|1327451720|37.777253789662|-122.3981738187"))
