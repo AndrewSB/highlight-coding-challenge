@@ -8,9 +8,6 @@ class Entry:
 		self.lat = float(arr[2])
 		self.lon = float(arr[3])
 
-	def stringify(self):
-		return self.name + " visited (" + str(self.lat) + "," + str(self.lon) + ") at " + str(self.time)
-
 	def isInRange(self, other): 
 		delta = haversine.distance(self,other)
 		print delta
@@ -22,3 +19,9 @@ class Entry:
 		if abs((self.time - other.time)) < (3600*6):
 			return True
 		return False
+
+	def stringify(self):
+		return self.name + " visited (" + str(self.lat) + "," + str(self.lon) + ") at " + str(self.time)
+
+	def csvify(self):
+		return self.name + "|" + str(self.time) + "|" + str(self.lat) + "|" + str(self.lon)
