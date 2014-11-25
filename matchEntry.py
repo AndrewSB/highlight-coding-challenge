@@ -16,16 +16,11 @@ class MatchEntry():
 
 	def checkLastInteraction(self, mArray):
 		relArray = []
-		returnArray = []
 		for m in mArray:
 			if self.name1 == m.name1 and self.name2 == m.name2:
-				relArray.append(m)
+				relArray.append(m.time)
 
-		for r in relArray:
-			returnArray.append(r.time)
-
-		return abs(max(returnArray) - self.time) if returnArray else ((24 * 60 * 60) + 1)
-
+		return abs(max(relArray) - self.time) if relArray else ((24 * 60 * 60) + 1)
 
 	def stringify(self):
 		return self.name1 + " met " + self.name2 + " at " + str(self.time) + " with a distance differential of " + str(self.differential) 

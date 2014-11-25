@@ -9,9 +9,7 @@ class Entry:
 		self.lon = float(arr[3])
 
 	def isInRange(self, other): 
-		delta = haversine.distance(self,other)
-		print delta
-		if (delta < 150.000000001):
+		if (haversine.distance(self,other) < 150):
 			return True
 		return False
 

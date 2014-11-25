@@ -5,7 +5,8 @@ import multistack
 
 ms = multistack.MultiStack()
 for line in open("userdata.txt", 'r'):
-	ms.addEntry(entry.Entry(line))
+	if not ms.addEntry(entry.Entry(line)):
+		print("ERROR: could not check" + line + " for some reason.")
 
 results = ms.matchesArray
 writeFile = open("output.txt", 'w')
