@@ -9,7 +9,7 @@ for line in open("userdata.txt", 'r'):
 		print("ERROR: could not check" + line + " for some reason.")
 
 results = ms.matchesArray
-writeFile = open("output.txt", 'w')
+writeFile = open("results.txt", 'w')
 for result in results:
 	print(result.stringify())
 	print(result.csvify(), file=writeFile)
