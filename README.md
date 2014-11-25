@@ -1,7 +1,8 @@
 #Build instructions
-- cd into the folder
-- run `python main.py`
-- you will see the program output in the console as well as in `results.txt` that will be added to the directory
+- `git clone https://github.com/AndrewSB/highlight-coding-challenge.git`
+- `cd highlight-coding-challenge`
+- `python main.py`
+- You'll see the program output in the console as well as in `results.txt` that will be added to the directory
 
 #Explanation of solution
 I wrote my solution in python because of it's simple and concise syntax. To solve the problem, I decided to create a data structure I called a `MultiStack`, the structure stores a stack for each user (danny, uncle joey, and dj) and runs code to make sure that if any two people are currently within 150ft of eachother, the entry will be examined further on the addition of any new dataentry.
