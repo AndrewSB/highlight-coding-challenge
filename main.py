@@ -11,6 +11,9 @@ for line in open("userdata.txt", 'r'):
 print("\n\n\n\nFINAL OUTPUT___________________________________________________________________")
 
 writeFile = open("results.txt", 'w')
+i = 0
 for result in ms.matchesArray:
+	i+=1
 	print(result.stringify())
 	print(result.csvify(), file=writeFile)
+print(str(i) + " matches")

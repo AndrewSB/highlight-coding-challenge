@@ -20,7 +20,7 @@ class MatchEntry():
 			if self.name1 == m.name1 and self.name2 == m.name2:
 				relArray.append(m.time)
 
-		return abs(max(relArray) - self.time) if relArray else ((24 * 60 * 60) + 1)
+		return abs(max(relArray) - self.time) if relArray else ((24 * 60 * 60) + 9999)
 
 	def stringify(self):
 		return self.name1 + " met " + self.name2 + " at " + str(self.time) + " with a distance differential of " + str(self.differential) 

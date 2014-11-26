@@ -9,12 +9,12 @@ class Entry:
 		self.lon = float(arr[3])
 
 	def isInRange(self, other): 
-		if (haversine.distance(self,other) < 150):
+		if (haversine.distance(self,other) <= 150):
 			return True
 		return False
 
 	def isWithinSixHours(self, other):
-		if abs((self.time - other.time)) < (3600*6):
+		if abs((self.time - other.time)) <= (3600*6):
 			return True
 		return False
 
