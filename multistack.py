@@ -34,14 +34,19 @@ class MultiStack:
 		for entryArray in self.mainArray:
 			if not e.name == entryArray[0] and e.isInRange(entryArray[-1]):
 				match = matchEntry.MatchEntry(e, entryArray[-1])
-				if e.isWithinSixHours(entryArray[-1]):
-					if match.checkLastInteraction(self.matchesArray) >= (24 * 60 * 60):
-						print "ADDED " + match.stringify()
-						return self.addToMatches(match)
-					else:
-						print "DIDN'T ADD " + match.stringify() + " because less than 24 hours since last match"
-				else:
-					print "DIDN'T ADD " + match.stringify() + " because inactive" 
+				self.checkMatchForConstraints(match, e, entryArray[-1])
+
+	
+	def checkMatchForConstraints(self, match, e, f):
+		if e.isWithinSixHours(f):
+			if match.checkLastInteraction(self.matchesArray) >= (24 * 60 * 60):
+				print "ADDED " + match.stringify()
+				return self.addToMatches(match)
+			else:
+				print "DIDN'T ADD " + match.stringify() + " because less than 24 hours since last match"
+		else:
+			print "DIDN'T ADD " + match.stringify() + " because inactive" 
+
 
 	def addToMatches(self, match):
 		return self.matchesArray.append(match)
